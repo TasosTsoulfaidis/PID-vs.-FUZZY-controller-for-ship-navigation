@@ -1,0 +1,69 @@
+[System]
+Name='together_fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=25
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='error'
+Range=[-13.3 13.3]
+NumMFs=5
+MF1='NL':'trapmf',[-14.67 -14.67 -9.31 -6.65]
+MF2='NS':'trapmf',[-9.973 -6.65 -3.329 0]
+MF3='PL':'trapmf',[6.65 9.973 14.66 14.66]
+MF4='PS':'trapmf',[0 3.329 6.65 9.973]
+MF5='ZERO':'trimf',[-3.329 0 3.329]
+
+[Input2]
+Name='error_rate'
+Range=[-8 8]
+NumMFs=5
+MF1='NL':'trapmf',[-9.995 -9.995 -5.998 -4]
+MF2='PS':'trimf',[0 3.002 5.998]
+MF3='NS':'trimf',[-5.998 -3.002 0]
+MF4='ZERO':'trimf',[-1.999 0 2.002]
+MF5='PL':'trapmf',[4 5.998 9.995 9.995]
+
+[Output1]
+Name='rudder_angle'
+Range=[-30 30]
+NumMFs=5
+MF1='NL':'trapmf',[-33.01 -33.01 -20 -15.01]
+MF2='NS':'trimf',[-9.997 -5 0]
+MF3='PS':'trimf',[0 5 9.997]
+MF4='ZERO':'trimf',[-4 0 4]
+MF5='PL':'trapmf',[15.01 20 33.01 33.01]
+
+[Rules]
+1 1, 5 (1) : 1
+1 3, 5 (1) : 1
+1 4, 5 (1) : 1
+1 2, 5 (1) : 1
+1 5, 5 (1) : 1
+2 1, 5 (1) : 1
+2 3, 3 (1) : 1
+2 4, 3 (1) : 1
+2 2, 4 (1) : 1
+2 5, 2 (1) : 1
+5 1, 5 (1) : 1
+5 3, 3 (1) : 1
+5 4, 4 (1) : 1
+5 2, 2 (1) : 1
+5 5, 1 (1) : 1
+4 1, 3 (1) : 1
+4 3, 4 (1) : 1
+4 4, 2 (1) : 1
+4 2, 2 (1) : 1
+4 5, 1 (1) : 1
+3 1, 1 (1) : 1
+3 3, 1 (1) : 1
+3 4, 1 (1) : 1
+3 2, 1 (1) : 1
+3 5, 1 (1) : 1
